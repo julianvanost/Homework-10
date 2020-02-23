@@ -1,6 +1,16 @@
 # Team Profile Generator
-Node.js and Constructor based team or employee profile generator with unit testing.
+
+## Node.js and Constructor based team or employee profile generator with unit testing.
 Handlebars, Jest, and Inquirer are required package installs.
+
+### [Live Heroku Deployment](https://www.google.com) 
+#### use "More" -> "Run Console" and type 
+```
+  node app.js
+```
+#### to run app on Heroku
+
+### [Github Environment](https://www.google.com)
 
 <a href="https://github.com/julianvanost" style="float:right"><img src="https://avatars3.githubusercontent.com/u/13158626?s=460&v=4" alt="Julian Van Ost" title="Julian Van Ost" width="120" height="120"></a>
 
