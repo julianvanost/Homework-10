@@ -4,6 +4,8 @@
 
 # Team Profile Generator
 ## Node.js and Constructor based team or employee profile generator with unit testing.
+#### Getting Started:
+First in terminal, type ``` npm init ``` then hit enter until finished. You should end up with a package.json file in your directory.
 ``` npm install Handlebars``` , ``` npm install Jest ``` and ``` npm install Inquirer ``` to make sure you have the proper packages installed prior to running.
 After this step, use ``` node app.js ``` to run application. Open the "Team.html" file to view your results.
 
