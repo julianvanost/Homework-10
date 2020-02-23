@@ -1,6 +1,7 @@
 const prompt = require('inquirer').createPromptModule()
 const Employee = require('./lib/Employee')
 const Engineer = require('./lib/Engineer')
+const ProjectManager = require('./lib/ProjectManager')
 const Intern = require('./lib/Intern')
 const Manager = require('./lib/Manager')
 const fs = require('fs')
@@ -9,32 +10,35 @@ let teamMembersArr = []
 let gHTML = ''
 
 let teamNumQues = [
-  'How many total team members are there?'
+  'How many people work for your company? '
 ]
 
 let managerQuestions = [
-  'Please enter the name of the manager?',
-  'What is the office number?'
+  "Manager's name:",
+  "Manager's phone number:"
 ]
 
 let engineerQuestions = [
-  'What is your gitHub? '
+  "Engineer's gitHub account:"
 ]
 
 let internQuestions = [
-  'What is the school that you attend?'
+  "Intern's school name:"
+]
+let projectManagerQuestions = [
+  "Project manager's phone number:"
 ]
 
 let questions = [
-  'What is your name?',
-  'What is id?',
-  'What is your email?',
-  'What is your role?'
+  "Employee's name:",
+  "Employee's id:",
+  "What is this employee's email:",
+  "Is this company employee an Engineer, Intern, or Project Manager?"
 ]
 
 async function startQuestions() {
   const initPrompt = await prompt([{
-    type: 'input',
+    type: 'number',
     name: 'teamNumber',
     message: teamNumQues[0]
   },
@@ -64,8 +68,6 @@ async function startQuestions() {
       let lead = new Manager(managerName, managerId, managerEmail, managerOffice)
       teamMembersArr.push(lead)
       askTeamMembers(teamNumber - 1)
-
-
     })
     .catch(e => console.error(e))
 }
@@ -75,17 +77,17 @@ async function askTeamMembers(teamNumber) {
     let currentRole
     let currentName
 
-    const internEngineer = await prompt([{
-      type: 'input',
-      name: `memberName`,
-      message: questions[0]
-    },
-    {
+    const internEngineerPm = await prompt([{
       type: 'list',
       name: `memberRole`,
       message: questions[3],
-      choices: ["Engineer", "Intern"]
-    }])
+      choices: ["Engineer", "Intern", "Project Manager"]
+    }, {
+      type: 'input',
+      name: `memberName`,
+      message: questions[0]
+    }
+    ])
       .then(({ memberName, memberRole }) => {
         currentName = memberName
         currentRole = memberRole
@@ -111,6 +113,25 @@ async function askTeamMembers(teamNumber) {
         teamMembersArr.push(engineerMember)
       }
       )
+    } else if (currentRole === 'Project Manager') {
+      const projectManagerPrompt = await prompt([{
+        type: 'input',
+        name: `memberId`,
+        message: questions[1]
+      }, {
+        type: 'input',
+        name: `memberEmail`,
+        message: questions[2]
+      }, {
+        type: 'input',
+        name: `pmPhone`,
+        message: projectManagerQuestions[0]
+      }
+      ]).then(({ memberId, memberEmail, pmPhone }) => {
+        let projectManagerMember = new ProjectManager(currentName, memberId, memberEmail, pmPhone)
+        teamMembersArr.push(projectManagerMember)
+      }
+      )
     }
     else {
       const internPrompt = await prompt([{
@@ -128,18 +149,12 @@ async function askTeamMembers(teamNumber) {
         message: internQuestions[0]
       }
       ]).then(({ memberId, memberEmail, memberSchool }) => {
-
-        let internMember = new Intern(currentName, memberId,
-          memberEmail, memberSchool)
-
+        let internMember = new Intern(currentName, memberId, memberEmail, memberSchool)
         teamMembersArr.push(internMember)
       }
       )
-
     }
   }
-
-
   // display each team member
   let htmlData = ''
 
@@ -156,14 +171,18 @@ async function askTeamMembers(teamNumber) {
       let resultIntern = InternTemplate(elem);
       htmlData += resultIntern
     }
+    else if (elem instanceof ProjectManager) {
+      let ProjectManagerSrc = readTemplateFile('./templates/projectmanager.html')
+      let ProjectManagerTemplate = Handlebars.compile(ProjectManagerSrc)
+      let resultProjectManager = ProjectManagerTemplate(elem);
+      htmlData += resultProjectManager
+    }
     else {
       let EngineerSrc = readTemplateFile('./templates/engineer.html')
       let EngineerTemplate = Handlebars.compile(EngineerSrc);
       let resultEngineer = EngineerTemplate(elem);
       htmlData += resultEngineer
-
     }
-
   })
 
   let mainSrc = readTemplateFile('./templates/main.html')
@@ -171,7 +190,7 @@ async function askTeamMembers(teamNumber) {
   let data = { data: htmlData }
   let resultMain = mainTemplate(data);
 
-  writeToFile('./output/Team.html', resultMain)
+  writeToFile('./output/team.html', resultMain)
 }
 
 const readTemplateFile = (fileName) => {

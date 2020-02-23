@@ -10,7 +10,15 @@
 .card {
   width: 18rem;
 }
-
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  min-width: -webkit-fill-available;
+}
 .card-header {
   font-size: x-large;
   font-weight: bold;
@@ -60,6 +68,16 @@
 .col .row {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  min-width: -webkit-fill-available;
 }
 
 .col-m-2 {
