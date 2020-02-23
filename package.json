@@ -1,0 +1,33 @@
+{
+  "name": "Homework-10",
+  "version": "1.0.0",
+  "description": "Dynamic Company Team Generator",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianvanost/Homework-10.git"
+  },
+  "author": "J Van Ost",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianvanost/Homework-10.git/issues"
+  },
+  "homepage": "https://github.com/julianvanost/Homework-10.git#readme",
+  "dependencies": {
+    "all": "0.0.0",
+    "handlebars": "^4.7.3",
+    "inquirer": "^6.3.1",
+    "modules": "^0.4.0",
+    "source-map": "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}

@@ -1,0 +1,94 @@
+.card-title {
+  color: black;
+}
+
+.border-primary {
+  border-color: #000000 !important;
+  border: 1px solid;
+}
+
+.card {
+  width: 18rem;
+}
+
+.card-header {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#yourTeam {
+  background-color: rgb(250, 250, 250);
+  color: #000;
+  width: inherit;
+  height: 4rem;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  border: 1px solid #000;
+  font-weight: bold;
+  text-align: center;
+  border-radius: .5rem .5rem 0 0;
+  margin-top: 0.3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.material-icons {
+  margin-right: 1rem;
+}
+
+.jumbotron {
+  padding: 1rem 0rem;
+  margin-bottom: 2rem;
+  background-color: ##67c3ff;
+  border-radius: 0 0 1.5rem 1.5rem;
+  margin: -.50rem 0.05rem 1rem 0.05rem;
+  border: 1px solid #000;
+  width: initial;
+}
+
+.cardBody {
+  max-width: 20rem;
+  border-radius: 1rem;
+  border: 1px solid #000;
+}
+
+.text-primary {
+  color: #05b2ef !important;
+  -webkit-text-stroke-width: thin;
+}
+
+.col .row {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.col-m-2 {
+  margin: 0.5rem;
+}
+
+.col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 90%;
+}
+
+.p-span {
+  color: #000;
+}
+
+
+.name-title {
+  font-size: larger;
+  font-weight: bold;
+  color: #000;
+}
+
+@media (min-width: 576px) {
+  .card-group>.card+.card {
+    margin-left: 0;
+    border-left: 1px solid #000;
+  }
+}
