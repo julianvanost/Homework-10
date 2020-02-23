@@ -3,14 +3,15 @@
 ## Node.js and Constructor based team or employee profile generator with unit testing.
 Handlebars, Jest, and Inquirer are required package installs.
 
-### [Live Heroku Deployment](https://www.google.com) 
+### [Heroku Repository Link](https://git.heroku.com/powerful-harbor-63187.git) 
+### [Heroku Deployment Name](powerful-harbor-63187) 
 #### use "More" -> "Run Console" and type 
 ```
   node app.js
 ```
 #### to run app on Heroku
 
-### [Github Environment](https://www.google.com)
+### [Live Github Environment](https://julianvanost.github.io/Homework-10/)
 
 <a href="https://github.com/julianvanost" style="float:right"><img src="https://avatars3.githubusercontent.com/u/13158626?s=460&v=4" alt="Julian Van Ost" title="Julian Van Ost" width="120" height="120"></a>
 
