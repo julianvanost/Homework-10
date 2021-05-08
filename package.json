@@ -22,7 +22,7 @@
   "homepage": "https://github.com/julianvanost/Homework-10.git#readme",
   "dependencies": {
     "all": "0.0.0",
-    "handlebars": "^4.7.3",
+    "handlebars": "^4.7.7",
     "inquirer": "^6.3.1",
     "modules": "^0.4.0",
     "source-map": "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz"
